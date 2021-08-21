@@ -529,7 +529,7 @@ calculated on the training set) to standardize the data per operating
 cluster on the test set, and not calculate them directly on the test
 set. Assume that a perfect linear predictor (sensor) exists for the
 training set, with a zero value when RUL = 100%, and a value of 100 when
-RUL = 0. Its mean value is 50. If we go and standardize it directly on a
+RUL = 0. Its mean value is 50. If we standardize directly on a
 test set (and not use the summary statistics calculated on the training
 set above), which contains recorded data from engines with RULs varying
 from 0 to 50% - half their lifetime has already passed - we will
@@ -654,7 +654,7 @@ corrplot(corr.mtrx, method = 'number', type = 'lower', diag = F)
 
 ![](code_files/figure-markdown_github/sensor_data_corrplot-1.png)
 
-Alright, there are several sensor that are correlated with each other.
+Alright, there are several sensor readings that are correlated with each other.
 We need some form of dimensionality reduction.
 
 Independent Component Analysis
@@ -687,7 +687,7 @@ sources are the ones mentioned above. Now, we have already removed the
 effect of operating conditions. This leaves two sources: degradation,
 and sensor noise. If we also assume that the effect of sensor noise is
 relatively small compared to the effect of degradation (hopefully this
-is tha case), we’re only left with one source: degradation. This implies
+is the case), we’re only left with one source: degradation. This implies
 that we have a single basis vector, therefore only *one* independent
 component. In this case, ICA boils down to *whitening* the dataset
 (decorrelate it through PCA and normalize to unit variance). Let’s apply
